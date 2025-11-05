@@ -16,13 +16,8 @@ phases:
   post_build:
     commands:
       - echo "Zipping build artifacts for CodeDeploy..."
-      - mkdir -p codedeploy
-      - cp -r build/ appspec.yml scripts/ codedeploy/
-      - cd codedeploy
-      - zip -r ../frontend-build.zip .
-      - cd ..
-      - echo "Build and packaging complete."
+      
 
 artifacts:
   files:
-    - frontend-build.zip
+    - "**/**"
