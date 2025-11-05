@@ -3,30 +3,26 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 16
+      nodejs: 18
     commands:
-      - echo Installing frontend dependencies...
-      - cd frontend
-      - npm ci
-  pre_build:
-    commands:
-      - echo Pre-build steps...
+      - echo "Installing project dependencies..."
+      - npm install --force
+
   build:
     commands:
-      - echo Building React app...
+      - echo "Building the React app..."
       - npm run build
+
   post_build:
     commands:
-      - echo Preparing artifacts...
+      - echo "Zipping build artifacts for CodeDeploy..."
+      - mkdir -p codedeploy
+      - cp -r build/ appspec.yml scripts/ codedeploy/
+      - cd codedeploy
+      - zip -r ../frontend-build.zip .
       - cd ..
-      - mkdir -p dist
-      - cp -r frontend/build dist/  # react build output
-      - cp appspec.yml dist/
-      - mkdir -p dist/scripts
-      - cp -r scripts/* dist/scripts/
+      - echo "Build and packaging complete."
 
 artifacts:
   files:
-    - '**/*'
-  base-directory: dist
-  discard-paths: no
+    - frontend-build.zip
