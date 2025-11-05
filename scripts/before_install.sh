@@ -1,11 +1,13 @@
 #!/bin/bash
-sudo apt update
-
 set -e
 
-# Navigate to the destination directory
-cd /var/www/frontend
+echo "===== BEFORE INSTALL STARTED ====="
 
-# Remove old files
-rm -rf *
-#rm -f .gitignore
+# Create directory if not exists
+sudo mkdir -p /var/www/frontend
+
+# Clean old build files only
+echo "Cleaning up old frontend files..."
+sudo rm -rf /var/www/frontend/*
+
+echo "===== BEFORE INSTALL COMPLETED SUCCESSFULLY ====="
