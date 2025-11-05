@@ -16,8 +16,8 @@ sudo npm run build
 
 # Move build files to Nginx root (if Nginx serves from /var/www/html)
 echo "Deploying build files to Nginx root..."
-sudo rm -rf /var/www/html/*
-sudo cp -r build/* /var/www/html/
+sudo rm -rf /var/www/frontend/*
+sudo cp -r build/* /var/www/frontend/
 
 # Restart Nginx to apply new build
 echo "Restarting Nginx..."
