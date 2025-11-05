@@ -2,13 +2,15 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /tmp/deploy_frontend
+    destination: /var/www/frontend
+
 hooks:
   BeforeInstall:
-    - location: scripts/install_frontend.sh
+    - location: scripts/beforeInstall.sh
       timeout: 300
       runas: root
-  ApplicationStart:
-    - location: scripts/start_frontend.sh
-      timeout: 300
+
+  AfterInstall:
+    - location: scripts/afterInstall.sh
+      timeout: 600
       runas: root
