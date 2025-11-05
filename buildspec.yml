@@ -1,0 +1,32 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+    commands:
+      - echo Installing frontend dependencies...
+      - cd frontend
+      - npm ci
+  pre_build:
+    commands:
+      - echo Pre-build steps...
+  build:
+    commands:
+      - echo Building React app...
+      - npm run build
+  post_build:
+    commands:
+      - echo Preparing artifacts...
+      - cd ..
+      - mkdir -p dist
+      - cp -r frontend/build dist/  # react build output
+      - cp appspec.yml dist/
+      - mkdir -p dist/scripts
+      - cp -r scripts/* dist/scripts/
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: dist
+  discard-paths: no
