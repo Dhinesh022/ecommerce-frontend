@@ -3,7 +3,7 @@ set -e
 
 cd /var/www/E-Commerce-react-node-mysql
 
-echo "Cleaning /var/www/E-Commerce-react-node-mysql except specified folders..."
+echo "Cleaning /var/www/E-Commerce-react-node-mysql except specified folders (music, test)..."
 
 # Include hidden files (like .gitignore, .env, etc.)
 shopt -s dotglob
