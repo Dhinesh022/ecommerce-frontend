@@ -7,7 +7,7 @@ echo "Cleaning /var/www/E-Commerce-react-node-mysql except specified folders..."
 
 for item in *; do
   case "$item" in
-    music|games|test)
+    music|test)
       echo "Skipping $item"
       ;;
     *)
