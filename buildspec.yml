@@ -16,8 +16,6 @@ phases:
   post_build:
     commands:
       - echo "Preparing files for CodeDeploy..."
-      - mkdir -p codedeploy
-      - cp -r build scripts appspec.yml codedeploy/
 
 artifacts:
   files:
