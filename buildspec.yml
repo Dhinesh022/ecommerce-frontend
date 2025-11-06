@@ -15,12 +15,10 @@ phases:
 
   post_build:
     commands:
-      - echo "Zipping build artifacts for CodeDeploy..."
-      
+      - echo "Preparing files for CodeDeploy..."
+      - mkdir -p codedeploy
+      - cp -r build scripts appspec.yml codedeploy/
 
 artifacts:
   files:
-    - appspec.yml
-    - scripts/**/*
-    - build/**/*
-
+    - codedeploy/**/*
