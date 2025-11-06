@@ -10,7 +10,7 @@ shopt -s dotglob
 
 for item in *; do
   case "$item" in
-    music|test)
+    manoj|ram|sample.txt)
       echo "Skipping $item"
       ;;
     *)
