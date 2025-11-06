@@ -5,6 +5,9 @@ cd /var/www/E-Commerce-react-node-mysql
 
 echo "Cleaning /var/www/E-Commerce-react-node-mysql except specified folders..."
 
+# Include hidden files (like .gitignore, .env, etc.)
+shopt -s dotglob
+
 for item in *; do
   case "$item" in
     music|test)
