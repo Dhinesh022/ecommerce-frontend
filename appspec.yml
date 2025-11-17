@@ -3,7 +3,7 @@ os: linux
 
 files:
   - source: /
-    destination: /var/www/E-Commerce-react-node-mysql
+    destination: /var/www/frontend
 
 hooks:
   BeforeInstall:
@@ -16,5 +16,6 @@ hooks:
       timeout: 300
       runas: root
 #
+
 
 
