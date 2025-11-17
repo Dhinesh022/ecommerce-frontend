@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-cd /var/www/frontned
+cd /var/www/frontend
 
 echo "Cleaning /var/www/frontend"
 
