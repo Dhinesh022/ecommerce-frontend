@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
 
-cd /var/www/E-Commerce-react-node-mysql
+cd /var/www/frontned
 
-echo "Cleaning /var/www/E-Commerce-react-node-mysql except specified folders (music, test)..."
+echo "Cleaning /var/www/frontend"
 
 # Include hidden files (like .gitignore, .env, etc.)
 shopt -s dotglob
