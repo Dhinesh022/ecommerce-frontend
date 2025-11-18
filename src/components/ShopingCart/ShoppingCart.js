@@ -34,7 +34,7 @@ const ShoppingCart = (props) => {
                   <th>Name</th>
                   <th>Quantity</th>
                   <th>Total Price</th>
-                  <th>remove</th>
+                  <th>Remove</th>
                 </tr>
               </thead>
               <tbody>
