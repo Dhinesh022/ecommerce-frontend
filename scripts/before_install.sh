@@ -3,21 +3,17 @@ set -e
 
 cd /var/www/frontend
 
-echo "Cleaning /var/www/frontend"
-
-# Include hidden files (like .gitignore, .env, etc.)
-shopt -s dotglob
+shopt -s dotglob  # include hidden files in *
 
 for item in *; do
-  case "$item" in
-    manoj|ram|sample.txt)
-      echo "Skipping $item"
-      ;;
-    *)
-      echo "Deleting $item"
-      sudo rm -rf "$item"
-      ;;
-  esac
+  if [ "$item" = ".env" ]; then
+    echo "Skipping .env"
+  else
+    echo "Deleting $item"
+    rm -rf "$item"
+  fi
 done
 
-echo "Cleanup complete"
+shopt -u dotglob
+
+echo "Cleanup done. .env is safe."
